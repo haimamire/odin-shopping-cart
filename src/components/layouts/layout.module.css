@@ -1,0 +1,32 @@
+.innerLayout {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.nav {
+  background-color: var(--color-yellow-main);
+}
+
+.nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.innerNav {
+  composes: innerLayout;
+}
+
+.main {
+}
+
+.innerMain {
+  composes: innerLayout;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.innerFooter {
+  composes: innerLayout;
+}
