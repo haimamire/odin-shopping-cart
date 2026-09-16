@@ -1,5 +1,31 @@
+import { useState } from "react";
+import ShopItem from "../../../components/shop/shop-item";
+
 const Shop = () => {
-  return <>shop</>;
+  const [allProducts, setAllProducts] = useState([
+    {
+      id: 0,
+      title: "test",
+      price: 1,
+      description: "description",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+    },
+  ]);
+
+  return (
+    <div>
+      {allProducts.map((product) => (
+        <ShopItem
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          description={product.description}
+          price={product.price}
+          image={product.image}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default Shop;

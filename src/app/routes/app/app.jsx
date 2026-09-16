@@ -1,8 +1,11 @@
 import { Link, Outlet } from "react-router";
-import styles from "./layout.module.css";
-import { disableForm } from "../../utils/form";
+import styles from "./app.module.css";
+import { disableForm } from "/src/utils/form";
+import useShoppingCart from "../../../hooks/use-shopping-cart";
 
-const Layout = () => {
+const App = () => {
+  const { cartProducts, addCartProduct } = useShoppingCart();
+
   return (
     <>
       <nav className={styles.nav}>
@@ -19,14 +22,14 @@ const Layout = () => {
               <Link to="/shop">Shop</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart">Cart</Link> {cartProducts.length}
             </li>
           </ul>
         </div>
       </nav>
       <div className={styles.main}>
         <main className={styles.innerMain}>
-          <Outlet />
+          <Outlet context={addCartProduct} />
         </main>
       </div>
       <footer className={styles.footer}>
@@ -36,4 +39,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default App;

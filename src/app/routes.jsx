@@ -1,4 +1,4 @@
-import Layout from "../components/layouts/layout";
+import App from "./routes/app/app";
 import Home from "./routes/app/home";
 import Shop from "./routes/app/shop";
 import Cart from "./routes/app/cart";
@@ -7,7 +7,7 @@ import NotFound from "./routes/not-found";
 const routes = [
   {
     path: "/",
-    element: <Layout />,
+    element: <App />,
     errorElement: <NotFound />,
     children: [
       {
