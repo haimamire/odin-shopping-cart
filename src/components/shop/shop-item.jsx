@@ -6,7 +6,7 @@ const ShopItem = ({ id, title, price, description, image }) => {
   const navigate = useNavigate();
 
   const addCurrentProduct = () => {
-    addCartProduct({ id, title, price, image });
+    addCartProduct({ id, title, quantity: 1, price, image });
 
     Swal.fire({
       title: `${title} was added to the cart!`,

@@ -3,7 +3,7 @@ import CartItem from "../../../components/cart/cart-item";
 import { useMemo } from "react";
 
 const Cart = () => {
-  const { cartProducts } = useOutletContext();
+  const { cartProducts, removeCartItem } = useOutletContext();
 
   const priceTotal = useMemo(
     () => cartProducts.reduce((acc, curr) => acc + curr.price, 0),
@@ -15,8 +15,8 @@ const Cart = () => {
       <div>
         <h2>Why aren't you buying anything?</h2>
         <p>
-          Go to <Link to="/shop">our shop </Link> and give us money now! We
-          can't afford rent anymore :(
+          Go to <Link to="/shop">our shop</Link> and give us money now! We can't
+          afford rent anymore :(
         </p>
       </div>
     );
@@ -29,9 +29,12 @@ const Cart = () => {
         {cartProducts.map((product) => (
           <CartItem
             key={product.id}
+            id={product.id}
             title={product.title}
+            quantity={product.quantity}
             price={product.price}
             image={product.image}
+            removeItem={removeCartItem}
           />
         ))}
       </section>

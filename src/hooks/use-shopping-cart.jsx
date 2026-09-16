@@ -1,15 +1,33 @@
 import { useState } from "react";
 
 const useShoppingCart = () => {
-  const [cartProducts, setSelectedProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 
-  const addCartProduct = (product) => {
-    setSelectedProducts((prev) => [...prev, product]);
+  const addCartProduct = (newProduct) => {
+    const newCart = [...cartProducts];
+
+    for (let product of newCart) {
+      if (product.id === newProduct.id) {
+        product.quantity++;
+        setCartProducts(newCart);
+        return;
+      }
+    }
+
+    newCart.push(newProduct);
+    setCartProducts(newCart);
+  };
+
+  const removeCartItem = (idToRemove) => {
+    const newCart = cartProducts.filter((product) => product.id !== idToRemove);
+
+    setCartProducts(newCart);
   };
 
   return {
     cartProducts,
     addCartProduct,
+    removeCartItem,
   };
 };
 

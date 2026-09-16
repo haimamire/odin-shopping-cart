@@ -1,4 +1,4 @@
-const CartItem = ({ title, price, image }) => {
+const CartItem = ({ id, title, quantity, price, image, removeItem }) => {
   return (
     <div>
       <div>
@@ -8,11 +8,17 @@ const CartItem = ({ title, price, image }) => {
         <div>
           <div>
             <div>{title}</div>
-            <button>Delete</button>
+            <button
+              onClick={() => {
+                removeItem(id);
+              }}
+            >
+              Delete
+            </button>
           </div>
           <div>
             <button>-</button>
-            <input type="number" />
+            <input type="number" defaultValue={quantity} />
             <button>+</button>
           </div>
         </div>
