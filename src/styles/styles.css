@@ -5,6 +5,9 @@
   --color-yellow-main: #ffe600;
   --color-white-bg: #ededed;
   --max-width: 1200px;
+
+  background-color: var(--color-white-bg);
+  font-family: "Proxima Nova", var(--system-ui);
 }
 
 @font-face {
@@ -24,11 +27,7 @@
   min-height: 100svh;
   margin: auto;
 
-  background-color: var(--color-white-bg);
-
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
-  font-family: "Proxima Nova", var(--system-ui);
 }
