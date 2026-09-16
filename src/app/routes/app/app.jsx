@@ -29,7 +29,7 @@ const App = () => {
       </nav>
       <div className={styles.main}>
         <main className={styles.innerMain}>
-          <Outlet context={addCartProduct} />
+          <Outlet context={{ cartProducts, addCartProduct }} />
         </main>
       </div>
       <footer className={styles.footer}>

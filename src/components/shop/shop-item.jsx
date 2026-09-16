@@ -2,7 +2,7 @@ import { useNavigate, useOutletContext } from "react-router";
 import Swal from "sweetalert2";
 
 const ShopItem = ({ id, title, price, description, image }) => {
-  const addCartProduct = useOutletContext();
+  const { addCartProduct } = useOutletContext();
   const navigate = useNavigate();
 
   const addCurrentProduct = () => {
@@ -20,7 +20,7 @@ const ShopItem = ({ id, title, price, description, image }) => {
 
   return (
     <div>
-      <img src={image} alt={description} />
+      <img src={image} alt={description} width="200px" />
       <div>
         <h2>{title}</h2>
         <div>${price}</div>
