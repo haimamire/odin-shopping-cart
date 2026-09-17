@@ -1,3 +1,4 @@
 .innerMain {
   composes: innerLayout from global;
+  margin: 30px auto;
 }

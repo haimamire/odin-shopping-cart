@@ -11,8 +11,8 @@ const App = () => {
   return (
     <>
       <NavBar cartLength={cartProducts.length} />
-      <div>
-        <main className={styles.innerMain}>
+      <main>
+        <div className={styles.innerMain}>
           <Outlet
             context={{
               cartProducts,
@@ -21,8 +21,8 @@ const App = () => {
               updateCartItem,
             }}
           />
-        </main>
-      </div>
+        </div>
+      </main>
       <Footer />
     </>
   );
