@@ -24,6 +24,10 @@ const CartItem = ({ product, removeItem, updateItem }) => {
     updateItem(product.id, quantity);
   };
 
+  const handleRemove = () => {
+    removeItem(product.id);
+  };
+
   return (
     <div>
       <div>
@@ -33,7 +37,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
         <div>
           <div>
             <div>{product.title}</div>
-            <button onClick={() => removeItem(product.id)}>Delete</button>
+            <button onClick={handleRemove}>Delete</button>
           </div>
           <div>
             <button

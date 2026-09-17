@@ -1,0 +1,4 @@
+.innerLayout {
+  max-width: var(--max-width);
+  margin: auto;
+}
