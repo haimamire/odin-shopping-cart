@@ -4,7 +4,8 @@ import { disableForm } from "/src/utils/form";
 import useShoppingCart from "../../../hooks/use-shopping-cart";
 
 const App = () => {
-  const { cartProducts, addCartProduct, removeCartItem } = useShoppingCart();
+  const { cartProducts, addCartProduct, removeCartItem, updateCartItem } =
+    useShoppingCart();
 
   return (
     <>
@@ -29,7 +30,14 @@ const App = () => {
       </nav>
       <div className={styles.main}>
         <main className={styles.innerMain}>
-          <Outlet context={{ cartProducts, addCartProduct, removeCartItem }} />
+          <Outlet
+            context={{
+              cartProducts,
+              addCartProduct,
+              removeCartItem,
+              updateCartItem,
+            }}
+          />
         </main>
       </div>
       <footer className={styles.footer}>

@@ -3,10 +3,11 @@ import CartItem from "../../../components/cart/cart-item";
 import { useMemo } from "react";
 
 const Cart = () => {
-  const { cartProducts, removeCartItem } = useOutletContext();
+  const { cartProducts, removeCartItem, updateCartItem } = useOutletContext();
 
   const priceTotal = useMemo(
-    () => cartProducts.reduce((acc, curr) => acc + curr.price, 0),
+    () =>
+      cartProducts.reduce((acc, curr) => acc + curr.price * curr.quantity, 0),
     [cartProducts],
   );
 
@@ -29,12 +30,15 @@ const Cart = () => {
         {cartProducts.map((product) => (
           <CartItem
             key={product.id}
-            id={product.id}
-            title={product.title}
-            quantity={product.quantity}
-            price={product.price}
-            image={product.image}
+            product={{
+              id: product.id,
+              title: product.title,
+              quantity: product.quantity,
+              price: product.price,
+              image: product.image,
+            }}
             removeItem={removeCartItem}
+            updateItem={updateCartItem}
           />
         ))}
       </section>

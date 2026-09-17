@@ -18,16 +18,29 @@ const useShoppingCart = () => {
     setCartProducts(newCart);
   };
 
-  const removeCartItem = (idToRemove) => {
-    const newCart = cartProducts.filter((product) => product.id !== idToRemove);
+  const removeCartItem = (id) => {
+    const newCart = cartProducts.filter((product) => product.id !== id);
 
     setCartProducts(newCart);
+  };
+
+  const updateCartItem = (id, quantity) => {
+    const newCart = [...cartProducts];
+
+    for (let product of newCart) {
+      if (product.id === id) {
+        product.quantity = quantity;
+        setCartProducts(newCart);
+        return;
+      }
+    }
   };
 
   return {
     cartProducts,
     addCartProduct,
     removeCartItem,
+    updateCartItem,
   };
 };
 

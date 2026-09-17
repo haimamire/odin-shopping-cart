@@ -1,28 +1,56 @@
-const CartItem = ({ id, title, quantity, price, image, removeItem }) => {
+const CartItem = ({ product, removeItem, updateItem }) => {
+  const increaseQuantity = () => {
+    updateQuantity(product.quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    updateQuantity(product.quantity - 1);
+  };
+
+  const handleInputQuantity = (e) => {
+    let quantity = e.target.value;
+
+    // Doesn't let you delete the item just from the input
+    if (e.target.value === "") quantity = 1;
+
+    updateQuantity(Number(quantity));
+  };
+
+  const updateQuantity = (quantity) => {
+    if (quantity <= 0) {
+      removeItem(product.id);
+      return;
+    }
+    updateItem(product.id, quantity);
+  };
+
   return (
     <div>
       <div>
-        <img src={image} alt="" width="70px" />
+        <img src={product.image} alt="" width="70px" />
       </div>
       <div>
         <div>
           <div>
-            <div>{title}</div>
-            <button
-              onClick={() => {
-                removeItem(id);
-              }}
-            >
-              Delete
-            </button>
+            <div>{product.title}</div>
+            <button onClick={() => removeItem(product.id)}>Delete</button>
           </div>
           <div>
-            <button>-</button>
-            <input type="number" defaultValue={quantity} />
-            <button>+</button>
+            <button
+              disabled={product.quantity === 1}
+              onClick={decreaseQuantity}
+            >
+              -
+            </button>
+            <input
+              type="number"
+              value={product.quantity}
+              onChange={handleInputQuantity}
+            />
+            <button onClick={increaseQuantity}>+</button>
           </div>
         </div>
-        <div>${price}</div>
+        <div>${product.price * product.quantity}</div>
       </div>
     </div>
   );
