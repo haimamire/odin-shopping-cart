@@ -2,7 +2,6 @@
   display: flex;
   align-items: flex-start;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .cart hr {
@@ -25,6 +24,7 @@
 .cartItems {
   composes: cartSection;
   flex: 5;
+  min-width: 0;
 }
 
 .summary {

@@ -53,7 +53,7 @@ const Cart = () => {
           </div>
           <div className={styles.namePrice}>
             <div>Shipping</div>
-            <div>Free!</div>
+            <div style={{ color: "green" }}>Free!</div>
           </div>
         </div>
         <hr />

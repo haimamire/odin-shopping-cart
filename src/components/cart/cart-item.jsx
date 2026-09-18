@@ -33,12 +33,14 @@ const CartItem = ({ product, removeItem, updateItem }) => {
   return (
     <div className={styles.itemContainer}>
       <div className={styles.imgContainer}>
-        <img src={product.image} alt="" width="70px" />
+        <img src={product.image} alt="" width="50px" />
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.nameQuantityContainer}>
-          <div className={styles.name}>
-            <div>{product.title}</div>
+          <div className={styles.nameRemoveBtn}>
+            <div className={styles.name}>
+              <p>{product.title}</p>
+            </div>
             <button
               title="Remove from shopping cart"
               className={styles.removeBtn}
@@ -62,7 +64,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
             <button onClick={increaseQuantity}>+</button>
           </div>
         </div>
-        <div>${product.price * product.quantity}</div>
+        <div className={styles.price}>${product.price * product.quantity}</div>
       </div>
     </div>
   );

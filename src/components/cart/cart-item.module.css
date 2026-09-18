@@ -2,15 +2,18 @@
   padding: 10px 0;
 
   display: flex;
+  align-items: flex-start;
   gap: 15px;
 }
 
 .imgContainer {
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 80px;
+  min-height: 80px;
 
   border-radius: 6px;
   background-color: #f5f5f5;
+
+  display: flex;
 }
 
 .imgContainer img {
@@ -19,6 +22,7 @@
 }
 
 .infoContainer {
+  min-width: 0;
   width: 100%;
 
   display: flex;
@@ -27,14 +31,31 @@
 }
 
 .nameQuantityContainer {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.nameRemoveBtn {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 10px;
 }
 
 .name {
-  display: flex;
-  gap: 10px;
+  overflow: hidden;
+}
+
+.name p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .removeBtn {
@@ -93,3 +114,14 @@
 .quantity input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.price {
+  font-size: 1.1rem;
+}
+
+/* @media (max-width: 767px) {
+  .infoContainer {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+} */
