@@ -4,4 +4,14 @@
 
 .innerFooter {
   composes: innerLayout from global;
+  margin: 40px auto;
+
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .innerFooter {
+    justify-content: flex-start;
+  }
 }
