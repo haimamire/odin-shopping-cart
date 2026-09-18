@@ -1,0 +1,95 @@
+.itemContainer {
+  padding: 10px 0;
+
+  display: flex;
+  gap: 15px;
+}
+
+.imgContainer {
+  min-width: 100px;
+  min-height: 100px;
+
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+.imgContainer img {
+  margin: auto;
+  padding: 5px;
+}
+
+.infoContainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nameQuantityContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name {
+  display: flex;
+  gap: 10px;
+}
+
+.removeBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.removeBtn:hover {
+  cursor: pointer;
+}
+
+.quantity {
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 8px;
+
+  display: flex;
+}
+
+.quantity:hover {
+  border: 1px solid gray;
+}
+
+.quantity input,
+.quantity button {
+  width: 40px;
+
+  border: none;
+  background-color: transparent;
+
+  text-align: center;
+}
+
+.quantity button {
+  font-size: 24px;
+}
+
+.quantity button:enabled {
+  color: var(--color-light-blue);
+}
+
+.quantity button:hover {
+  cursor: pointer;
+}
+
+.quantity input:focus {
+  outline: none;
+}
+
+/* Removes the up and down input spin buttons */
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity input[type="number"] {
+  -moz-appearance: textfield;
+}

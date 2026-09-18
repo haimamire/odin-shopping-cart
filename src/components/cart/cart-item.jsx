@@ -1,3 +1,5 @@
+import styles from "./cart-item.module.css";
+
 const CartItem = ({ product, removeItem, updateItem }) => {
   const increaseQuantity = () => {
     updateQuantity(product.quantity + 1);
@@ -29,17 +31,23 @@ const CartItem = ({ product, removeItem, updateItem }) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.itemContainer}>
+      <div className={styles.imgContainer}>
         <img src={product.image} alt="" width="70px" />
       </div>
-      <div>
-        <div>
-          <div>
+      <div className={styles.infoContainer}>
+        <div className={styles.nameQuantityContainer}>
+          <div className={styles.name}>
             <div>{product.title}</div>
-            <button onClick={handleRemove}>Delete</button>
+            <button
+              title="Remove from shopping cart"
+              className={styles.removeBtn}
+              onClick={handleRemove}
+            >
+              🗑️
+            </button>
           </div>
-          <div>
+          <div className={styles.quantity}>
             <button
               disabled={product.quantity === 1}
               onClick={decreaseQuantity}

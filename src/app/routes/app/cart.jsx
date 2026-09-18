@@ -1,6 +1,7 @@
 import { Link, useOutletContext } from "react-router";
-import CartItem from "../../../components/cart/cart-item";
 import { useMemo } from "react";
+import CartItem from "../../../components/cart/cart-item";
+import styles from "./cart.module.css";
 
 const Cart = () => {
   const { cartProducts, removeCartItem, updateCartItem } = useOutletContext();
@@ -23,8 +24,8 @@ const Cart = () => {
     );
 
   return (
-    <div>
-      <section>
+    <div className={styles.cart}>
+      <section className={styles.cartItems}>
         <h2>Shopping Cart</h2>
         <hr />
         {cartProducts.map((product) => (
@@ -42,26 +43,26 @@ const Cart = () => {
           />
         ))}
       </section>
-      <section>
+      <section className={styles.summary}>
         <h2>Order Summary</h2>
         <hr />
         <div>
-          <div>
+          <div className={styles.namePrice}>
             <div>Items</div>
             <div>${priceTotal}</div>
           </div>
-          <div>
+          <div className={styles.namePrice}>
             <div>Shipping</div>
             <div>Free!</div>
           </div>
         </div>
         <hr />
         <div>
-          <div>
+          <div className={styles.namePrice}>
             <div>Total</div>
             <div>${priceTotal}</div>
           </div>
-          <button>Checkout</button>
+          <button className={styles.checkoutBtn}>Checkout</button>
         </div>
       </section>
     </div>
