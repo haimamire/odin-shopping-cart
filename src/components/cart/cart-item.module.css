@@ -59,8 +59,13 @@
 }
 
 .removeBtn {
+  min-width: 24px;
+  min-height: 24px;
+
   border: none;
   background-color: transparent;
+
+  padding: 0;
 }
 
 .removeBtn:hover {

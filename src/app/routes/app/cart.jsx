@@ -12,6 +12,8 @@ const Cart = () => {
     [cartProducts],
   );
 
+  const shipping = priceTotal < 20 ? 8 : 0;
+
   if (cartProducts.length === 0)
     return (
       <div>
@@ -53,14 +55,18 @@ const Cart = () => {
           </div>
           <div className={styles.namePrice}>
             <div>Shipping</div>
-            <div style={{ color: "green" }}>Free!</div>
+            {shipping ? (
+              <div>${shipping}</div>
+            ) : (
+              <div style={{ color: "green" }}>Free!</div>
+            )}
           </div>
         </div>
         <hr />
         <div>
           <div className={styles.namePrice}>
             <div>Total</div>
-            <div>${priceTotal}</div>
+            <div>${priceTotal + shipping}</div>
           </div>
           <button className={styles.checkoutBtn}>Checkout</button>
         </div>

@@ -1,3 +1,4 @@
+import { Trash } from "lucide-react";
 import styles from "./cart-item.module.css";
 
 const CartItem = ({ product, removeItem, updateItem }) => {
@@ -46,7 +47,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
               className={styles.removeBtn}
               onClick={handleRemove}
             >
-              🗑️
+              <Trash size="18px" color="black" opacity={0.4} />
             </button>
           </div>
           <div className={styles.quantity}>
