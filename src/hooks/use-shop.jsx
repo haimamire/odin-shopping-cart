@@ -21,7 +21,7 @@ const useShop = () => {
     };
 
     dataFetch();
-  });
+  }, []);
 
   return { allProducts, error, loading };
 };
