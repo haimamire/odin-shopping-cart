@@ -11,10 +11,10 @@ const ShopItem = ({ id, title, price, description, image }) => {
     addCartProduct({ id, title, quantity: 1, price, image });
 
     Swal.fire({
-      title: `${title} was added to the cart!`,
+      title: `New item added to the cart!`,
       icon: "success",
       showCloseButton: true,
-      confirmButtonText: "Go to shopping cart",
+      confirmButtonText: "Check shopping cart",
       confirmButtonColor: "var(--color-light-blue)",
     }).then((result) => {
       if (result.isConfirmed) navigate("/cart");
@@ -24,7 +24,7 @@ const ShopItem = ({ id, title, price, description, image }) => {
   return (
     <div className={styles.shopItem}>
       <div className={styles.imgContainer}>
-        <img src={image} alt={description} height="200px" />
+        <img src={image} alt={description} height="200px" width="200px" />
       </div>
       <div className={styles.infoContainer}>
         <h2 className={styles.title}>{title}</h2>

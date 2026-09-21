@@ -3,21 +3,34 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   background-color: white;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
   overflow: hidden;
 }
 
 .imgContainer {
-  height: 200px;
   background-color: var(--color-light-gray);
   padding: 15px;
+
   display: flex;
   justify-content: center;
+
+  overflow: hidden;
+}
+
+.imgContainer img {
+  object-fit: contain;
 }
 
 .infoContainer {
+  min-height: 130px;
   padding: 15px;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 15px;
 }
 
