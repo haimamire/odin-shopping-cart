@@ -1,0 +1,39 @@
+.mainContainer {
+  composes: shopItems from "/src/app/routes/app/shop.module.css";
+}
+
+.loadingCard {
+  composes: shopItem from "/src/components/shop/shop-item.module.css";
+  box-shadow: none;
+}
+
+@keyframes loadingAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.animatedComponent {
+  background-color: rgb(220, 220, 220);
+  will-change: opacity;
+  animation: loadingAnimation 700ms ease-in alternate infinite;
+}
+
+.imgContainer {
+  composes: imgContainer from "/src/components/shop/shop-item.module.css";
+  composes: animatedComponent;
+}
+
+.infoContainer {
+  composes: infoContainer from "/src/components/shop/shop-item.module.css";
+}
+
+.titleAnimation {
+  composes: animatedComponent;
+  height: 24px;
+  width: 100%;
+  border-radius: 10px;
+}

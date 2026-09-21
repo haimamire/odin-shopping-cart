@@ -1,4 +1,5 @@
 import ShopItem from "../../../components/shop/shop-item";
+import ShopLoading from "../../../components/ui/loading-screens/shop-loading";
 import useShop from "../../../hooks/use-shop";
 import styles from "./shop.module.css";
 
@@ -14,7 +15,7 @@ const Shop = () => {
         </>
       )}
       {loading ? (
-        <div>Loading...</div>
+        <ShopLoading />
       ) : (
         <div className={styles.shopItems}>
           {allProducts.map((product) => (

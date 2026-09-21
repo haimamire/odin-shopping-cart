@@ -20,7 +20,8 @@ const useShop = () => {
       }
     };
 
-    dataFetch();
+    // To appreciate the loading screen
+    setTimeout(dataFetch, 1000);
   }, []);
 
   return { allProducts, error, loading };
