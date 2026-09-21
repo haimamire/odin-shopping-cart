@@ -1,5 +1,6 @@
 import { Trash } from "lucide-react";
 import styles from "./cart-item.module.css";
+import { toFixed } from "../../utils/roundNumber";
 
 const CartItem = ({ product, removeItem, updateItem }) => {
   const increaseQuantity = () => {
@@ -65,7 +66,9 @@ const CartItem = ({ product, removeItem, updateItem }) => {
             <button onClick={increaseQuantity}>+</button>
           </div>
         </div>
-        <div className={styles.price}>${product.price * product.quantity}</div>
+        <div className={styles.price}>
+          ${toFixed(product.price * product.quantity, 2)}
+        </div>
       </div>
     </div>
   );

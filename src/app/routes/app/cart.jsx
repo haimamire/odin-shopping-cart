@@ -2,15 +2,18 @@ import { Link, useOutletContext } from "react-router";
 import { useMemo } from "react";
 import CartItem from "../../../components/cart/cart-item";
 import styles from "./cart.module.css";
+import { toFixed } from "../../../utils/roundNumber";
 
 const Cart = () => {
   const { cartProducts, removeCartItem, updateCartItem } = useOutletContext();
 
-  const priceTotal = useMemo(
-    () =>
-      cartProducts.reduce((acc, curr) => acc + curr.price * curr.quantity, 0),
-    [cartProducts],
-  );
+  const priceTotal = useMemo(() => {
+    let newPrice = cartProducts.reduce(
+      (acc, curr) => acc + curr.price * curr.quantity,
+      0,
+    );
+    return toFixed(newPrice, 2);
+  }, [cartProducts]);
 
   const shipping = priceTotal < 20 ? 8 : 0;
 
@@ -66,7 +69,7 @@ const Cart = () => {
         <div>
           <div className={styles.namePrice}>
             <div>Total</div>
-            <div>${priceTotal + shipping}</div>
+            <div>${toFixed(priceTotal + shipping, 2)}</div>
           </div>
           <button className={styles.checkoutBtn}>Checkout</button>
         </div>

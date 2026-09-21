@@ -26,7 +26,8 @@
 }
 
 #root {
-  min-height: 100svh;
+  /* Show always the scrollbar to prevent it from appearing and disappearing between pages*/
+  min-height: 101svh;
   margin: auto;
 
   display: flex;
