@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import styles from "./shop-item.module.css";
 import { ShoppingCartPlus } from "lucide-react";
 
-const ShopItem = ({ id, title, price, description, image }) => {
+const ShopItem = ({ id, title, price, image }) => {
   const { addCartProduct } = useOutletContext();
   const navigate = useNavigate();
 
@@ -22,20 +22,25 @@ const ShopItem = ({ id, title, price, description, image }) => {
   };
 
   return (
-    <div className={styles.shopItem}>
+    <li className={styles.shopItem} tabIndex="1">
       <div className={styles.imgContainer}>
-        <img src={image} alt={description} height="200px" width="200px" />
+        <img src={image} alt="" height="200px" width="200px" />
       </div>
       <div className={styles.infoContainer}>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.priceContainer}>
-          <div className={styles.price}>${price}</div>
-          <button className={styles.cartBtn} onClick={addCurrentProduct}>
+          <div className={styles.price} aria-label="Price">{`$${price}`}</div>
+          <button
+            className={styles.cartBtn}
+            onClick={addCurrentProduct}
+            aria-label="Add item to cart"
+            tabIndex="1"
+          >
             <ShoppingCartPlus />
           </button>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

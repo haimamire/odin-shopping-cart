@@ -5,9 +5,9 @@ const Footer = () => {
 
   return (
     <>
-      <footer className={styles.footer}>
+      <footer className={styles.footer} aria-label="Footer">
         <div className={styles.innerFooter}>
-          © {thisYear} mercado negro | All Rights Reserved
+          <p>{`© ${thisYear} mercado negro | All Rights Reserved`}</p>
         </div>
       </footer>
     </>

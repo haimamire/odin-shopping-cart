@@ -2,7 +2,7 @@ import styles from "./shop-loading.module.css";
 
 const ShopLoading = () => {
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} aria-label="Loading items...">
       <div className={styles.loadingCard}>
         <div className={styles.imgContainer}></div>
         <div className={styles.infoContainer}>

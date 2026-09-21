@@ -10,19 +10,27 @@ const NavBar = ({ cartLength }) => {
         <div className={styles.innerNav}>
           <div className={styles.leftSide}>
             <div>
-              <Link className={styles.logoLink} to="/">
-                <div className={styles.logo}>
+              <Link
+                className={styles.logoLink}
+                to="/"
+                aria-label="Return back home"
+              >
+                <div className={styles.logo} aria-hidden="true">
                   <Handshake size="32px" strokeWidth="1.5px" />
                 </div>
-                <div className={styles.siteName}>
+                <div className={styles.siteName} aria-hidden="true">
                   <div>mercado</div>
                   <div>negro</div>
                 </div>
               </Link>
             </div>
-            <form action="" className={styles.searchBar}>
-              <input type="text" placeholder="This thing doesn't work..." />
-              <button type="submit" onClick={disableForm}>
+            <form action="" className={styles.searchBar} role="search">
+              <input
+                type="text"
+                placeholder="This thing doesn't work..."
+                aria-label="Search input"
+              />
+              <button type="submit" onClick={disableForm} aria-label="Search">
                 <Search size="18px" />
               </button>
             </form>
@@ -30,12 +38,18 @@ const NavBar = ({ cartLength }) => {
           <div className={styles.rightSide}>
             <ul>
               <li>
-                <Link to="/shop">Shop</Link>
+                <Link to="/shop" aria-label="Go to shop">
+                  <span aria-hidden="true">Shop</span>
+                </Link>
               </li>
               <li>
-                <Link to="/cart" className={styles.cart}>
+                <Link
+                  to="/cart"
+                  className={styles.cart}
+                  aria-label={`Go to shopping cart, ${cartLength} items added`}
+                >
                   <ShoppingCart size="18px" />
-                  {cartLength}
+                  <span aria-hidden="true">{cartLength}</span>
                 </Link>
               </li>
             </ul>

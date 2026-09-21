@@ -36,44 +36,46 @@ const Cart = () => {
     <div className={styles.cart}>
       <section className={styles.cartItems}>
         <h2>Shopping Cart</h2>
-        <hr />
-        {cartProducts.map((product) => (
-          <CartItem
-            key={product.id}
-            product={{
-              id: product.id,
-              title: product.title,
-              quantity: product.quantity,
-              price: product.price,
-              image: product.image,
-            }}
-            removeItem={removeCartItem}
-            updateItem={updateCartItem}
-          />
-        ))}
+        <hr aria-hidden="true" />
+        <ul>
+          {cartProducts.map((product) => (
+            <CartItem
+              key={product.id}
+              product={{
+                id: product.id,
+                title: product.title,
+                quantity: product.quantity,
+                price: product.price,
+                image: product.image,
+              }}
+              removeItem={removeCartItem}
+              updateItem={updateCartItem}
+            />
+          ))}
+        </ul>
       </section>
       <section className={styles.summary}>
         <h2>Order Summary</h2>
-        <hr />
+        <hr aria-hidden="true" />
         <div>
-          <div className={styles.namePrice}>
-            <div>Items</div>
-            <div>${priceTotal}</div>
+          <div className={styles.namePrice} aria-label="Items total">
+            <div aria-hidden="true">Items</div>
+            <div>{`$${priceTotal}`}</div>
           </div>
-          <div className={styles.namePrice}>
-            <div>Shipping</div>
+          <div className={styles.namePrice} aria-label="Shipping total">
+            <div aria-hidden="true">Shipping</div>
             {shipping ? (
-              <div>${shipping}</div>
+              <div>{`$${shipping}`}</div>
             ) : (
               <div style={{ color: "green" }}>Free!</div>
             )}
           </div>
         </div>
-        <hr />
+        <hr aria-hidden="true" />
         <div>
-          <div className={styles.namePrice}>
-            <div>Total</div>
-            <div>${toFixed(priceTotal + shipping, 2)}</div>
+          <div className={styles.namePrice} aria-label="Total">
+            <div aria-hidden="true">Total</div>
+            <div>{`$${toFixed(priceTotal + shipping, 2)}`}</div>
           </div>
           <button className={styles.checkoutBtn}>Checkout</button>
         </div>

@@ -33,7 +33,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
   };
 
   return (
-    <div className={styles.itemContainer}>
+    <li className={styles.itemContainer}>
       <div className={styles.imgContainer}>
         <img src={product.image} alt="" width="50px" />
       </div>
@@ -45,6 +45,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
             </div>
             <button
               title="Remove from shopping cart"
+              aria-label={`Remove ${product.title} from shopping cart`}
               className={styles.removeBtn}
               onClick={handleRemove}
             >
@@ -55,22 +56,29 @@ const CartItem = ({ product, removeItem, updateItem }) => {
             <button
               disabled={product.quantity === 1}
               onClick={decreaseQuantity}
+              aria-label="Remove 1 of the same item"
             >
-              -
+              <span aria-hidden="true">-</span>
             </button>
             <input
               type="number"
               value={product.quantity}
               onChange={handleInputQuantity}
+              aria-label="Current number of the same item"
             />
-            <button onClick={increaseQuantity}>+</button>
+            <button
+              onClick={increaseQuantity}
+              aria-label="Add 1 more of the same item"
+            >
+              <span aria-hidden="true">+</span>
+            </button>
           </div>
         </div>
-        <div className={styles.price}>
-          ${toFixed(product.price * product.quantity, 2)}
+        <div className={styles.price} aria-label="Price">
+          {`$${toFixed(product.price * product.quantity, 2)}`}
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
