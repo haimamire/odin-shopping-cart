@@ -24,7 +24,7 @@ const ShopItem = ({ id, title, price, description, image }) => {
   return (
     <div className={styles.shopItem}>
       <div className={styles.imgContainer}>
-        <img src={image} alt={description} width="160px" />
+        <img src={image} alt={description} height="200px" />
       </div>
       <div className={styles.infoContainer}>
         <h2 className={styles.title}>{title}</h2>
