@@ -29,9 +29,9 @@ const Home = () => {
           <img
             alt="A random image"
             className={styles.heroImage}
-            srcSet="https://picsum.photos/500 500w, https://picsum.photos/400 400w"
-            sizes="(max-width: 767px) 95vw, (max-width: 1440px) 40vw, 500px"
             src="https://picsum.photos/500"
+            width="500px"
+            height="500px"
           />
         </div>
       </section>
