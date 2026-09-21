@@ -1,11 +1,15 @@
 import { Link, useOutletContext } from "react-router";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import CartItem from "../../../components/cart/cart-item";
 import styles from "./cart.module.css";
 import { toFixed } from "../../../utils/roundNumber";
 
 const Cart = () => {
   const { cartProducts, removeCartItem, updateCartItem } = useOutletContext();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const priceTotal = useMemo(() => {
     let newPrice = cartProducts.reduce(
