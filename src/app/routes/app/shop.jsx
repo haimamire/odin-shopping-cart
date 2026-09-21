@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ShopItem from "../../../components/shop/shop-item";
+import styles from "./shop.module.css";
 
 const Shop = () => {
   const [allProducts, setAllProducts] = useState([
@@ -11,10 +12,34 @@ const Shop = () => {
       description: "description",
       image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
     },
+    {
+      id: 1,
+      title:
+        "Balanza Digital Alta Precisión Personal 180kg Vidrio Templado LED Color Negro JD EB3483",
+      price: 1,
+      description: "description",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+    },
+    {
+      id: 2,
+      title:
+        "Balanza Digital Alta Precisión Personal 180kg Vidrio Templado LED Color Negro JD EB3483",
+      price: 1,
+      description: "description",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+    },
+    {
+      id: 3,
+      title:
+        "Balanza Digital Alta Precisión Personal 180kg Vidrio Templado LED Color Negro JD EB3483",
+      price: 1,
+      description: "description",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+    },
   ]);
 
   return (
-    <div>
+    <div className={styles.shopItems}>
       {allProducts.map((product) => (
         <ShopItem
           key={product.id}

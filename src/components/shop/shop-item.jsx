@@ -1,5 +1,7 @@
 import { useNavigate, useOutletContext } from "react-router";
 import Swal from "sweetalert2";
+import styles from "./shop-item.module.css";
+import { ShoppingCartPlus } from "lucide-react";
 
 const ShopItem = ({ id, title, price, description, image }) => {
   const { addCartProduct } = useOutletContext();
@@ -13,18 +15,25 @@ const ShopItem = ({ id, title, price, description, image }) => {
       icon: "success",
       showCloseButton: true,
       confirmButtonText: "Go to shopping cart",
+      confirmButtonColor: "var(--color-light-blue)",
     }).then((result) => {
       if (result.isConfirmed) navigate("/cart");
     });
   };
 
   return (
-    <div>
-      <img src={image} alt={description} width="200px" />
-      <div>
-        <h2>{title}</h2>
-        <div>${price}</div>
-        <button onClick={addCurrentProduct}>Add to Cart</button>
+    <div className={styles.shopItem}>
+      <div className={styles.imgContainer}>
+        <img src={image} alt={description} width="160px" />
+      </div>
+      <div className={styles.infoContainer}>
+        <h2 className={styles.title}>{title}</h2>
+        <div className={styles.priceContainer}>
+          <div className={styles.price}>${price}</div>
+          <button className={styles.cartBtn} onClick={addCurrentProduct}>
+            <ShoppingCartPlus />
+          </button>
+        </div>
       </div>
     </div>
   );
