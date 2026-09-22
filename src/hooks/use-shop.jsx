@@ -21,7 +21,8 @@ const useShop = () => {
     };
 
     // To appreciate the loading screen
-    setTimeout(dataFetch, 1000);
+    // setTimeout(dataFetch, 1000);
+    dataFetch();
   }, []);
 
   return { allProducts, error, loading };

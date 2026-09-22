@@ -25,6 +25,7 @@
 .imgContainer {
   composes: imgContainer from "/src/components/shop/shop-item.module.css";
   composes: animatedComponent;
+  height: 200px;
 }
 
 .infoContainer {

@@ -9,10 +9,10 @@ const Shop = () => {
   return (
     <>
       {error && (
-        <>
+        <div data-testid="shop-fetching-error">
           <div>There was a problem loading the shop items.</div>
           <div>Please try again later.</div>
-        </>
+        </div>
       )}
       {loading ? (
         <ShopLoading />
