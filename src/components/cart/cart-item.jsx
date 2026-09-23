@@ -35,7 +35,12 @@ const CartItem = ({ product, removeItem, updateItem }) => {
   return (
     <li className={styles.itemContainer}>
       <div className={styles.imgContainer}>
-        <img src={product.image} alt="" width="50px" />
+        <img
+          src={product.image}
+          alt=""
+          width="50px"
+          data-testid="product-img"
+        />
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.nameQuantityContainer}>
@@ -48,6 +53,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
               aria-label={`Remove ${product.title} from shopping cart`}
               className={styles.removeBtn}
               onClick={handleRemove}
+              data-testid="remove-btn"
             >
               <Trash size="18px" color="black" opacity={0.4} />
             </button>
@@ -57,6 +63,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
               disabled={product.quantity === 1}
               onClick={decreaseQuantity}
               aria-label="Remove 1 of the same item"
+              data-testid="decrease-quantity-btn"
             >
               <span aria-hidden="true">-</span>
             </button>
@@ -65,16 +72,22 @@ const CartItem = ({ product, removeItem, updateItem }) => {
               value={product.quantity}
               onChange={handleInputQuantity}
               aria-label="Current number of the same item"
+              data-testid="quantity-input"
             />
             <button
               onClick={increaseQuantity}
               aria-label="Add 1 more of the same item"
+              data-testid="increase-quantity-btn"
             >
               <span aria-hidden="true">+</span>
             </button>
           </div>
         </div>
-        <div className={styles.price} aria-label="Price">
+        <div
+          className={styles.price}
+          aria-label="Price"
+          data-testid="product-price"
+        >
           {`$${toFixed(product.price * product.quantity, 2)}`}
         </div>
       </div>
