@@ -3,7 +3,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Shop from "../shop";
 
 const shopItemsData = [
@@ -30,7 +30,7 @@ vi.mock("/src/components/shop/shop-item", () => {
 });
 
 describe("Error and loading screens", () => {
-  test("shows loading screen while fetching", async () => {
+  it("shows loading screen while fetching", async () => {
     render(<Shop />);
 
     expect(screen.getByTestId("shop-loading")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("Error and loading screens", () => {
     await waitForElementToBeRemoved(() => screen.getByTestId("shop-loading"));
   });
 
-  test("shows an error if the response status is over 400", async () => {
+  it("shows an error if the response status is over 400", async () => {
     window.fetch.mockImplementationOnce(() => Promise.resolve({ status: 400 }));
 
     render(<Shop />);
@@ -47,7 +47,7 @@ describe("Error and loading screens", () => {
     expect(errorElement).toBeInTheDocument();
   });
 
-  test("shows the error screen when the fetch fails", async () => {
+  it("shows the error screen when the fetch fails", async () => {
     window.fetch.mockImplementationOnce(() => {
       throw new Error();
     });
@@ -60,15 +60,15 @@ describe("Error and loading screens", () => {
 });
 
 describe("Shop items", () => {
-  test("should display all the fetched shop items", async () => {
+  it("should display all the fetched shop items", async () => {
     render(<Shop />);
 
-    const shopItems = await screen.findAllByText("Shop item");
+    const shopItems = await screen.findAllByText(/shop item/i);
 
     expect(shopItems.length).toBe(shopItemsData.length);
   });
 
-  test("all props are properly being passed to the shop items", async () => {
+  it("all props are properly being passed to the shop items", async () => {
     render(<Shop />);
     await waitForElementToBeRemoved(() => screen.getByTestId("shop-loading"));
 

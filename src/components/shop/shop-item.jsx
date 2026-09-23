@@ -24,7 +24,13 @@ const ShopItem = ({ id, title, price, image }) => {
   return (
     <li className={styles.shopItem} tabIndex="1">
       <div className={styles.imgContainer}>
-        <img src={image} alt="" height="200px" width="200px" />
+        <img
+          src={image}
+          alt=""
+          height="200px"
+          width="200px"
+          data-testid="shop-img"
+        />
       </div>
       <div className={styles.infoContainer}>
         <h2 className={styles.title}>{title}</h2>
@@ -35,6 +41,7 @@ const ShopItem = ({ id, title, price, image }) => {
             onClick={addCurrentProduct}
             aria-label="Add item to cart"
             tabIndex="1"
+            data-testid={`add-to-cart`}
           >
             <ShoppingCartPlus />
           </button>
