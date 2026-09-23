@@ -1,9 +1,12 @@
 import ShopItem from "../../../components/shop/shop-item";
 import ShopLoading from "../../../components/ui/loading-screens/shop-loading";
+import useDocumentTitle from "../../../hooks/use-document-title";
 import useShop from "../../../hooks/use-shop";
 import styles from "./shop.module.css";
 
 const Shop = () => {
+  useDocumentTitle("Shop | Mercado Negro");
+
   const { allProducts, loading, error } = useShop();
 
   return (

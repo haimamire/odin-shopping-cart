@@ -3,8 +3,11 @@ import { useEffect, useMemo } from "react";
 import CartItem from "../../../components/cart/cart-item";
 import styles from "./cart.module.css";
 import { toFixed } from "../../../utils/roundNumber";
+import useDocumentTitle from "../../../hooks/use-document-title";
 
 const Cart = () => {
+  useDocumentTitle("Cart | Mercado Negro");
+
   const { cartProducts, removeCartItem, updateCartItem } = useOutletContext();
 
   useEffect(() => {

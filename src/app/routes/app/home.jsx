@@ -1,6 +1,9 @@
 import styles from "./home.module.css";
+import useDocumentTitle from "../../../hooks/use-document-title";
 
 const Home = () => {
+  useDocumentTitle("Home | Mercado Negro");
+
   return (
     <>
       <section className={styles.section}>
