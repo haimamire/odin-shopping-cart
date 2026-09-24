@@ -26,7 +26,7 @@ const Cart = () => {
 
   if (cartProducts.length === 0)
     return (
-      <div>
+      <div data-testid="empty-cart">
         <h2>Why aren't you buying anything?</h2>
         <p>
           Go to <Link to="/shop">our shop</Link> and give us money now! We can't
@@ -36,7 +36,7 @@ const Cart = () => {
     );
 
   return (
-    <div className={styles.cart}>
+    <div className={styles.cart} data-testid="cart">
       <section className={styles.cartItems}>
         <h2>Shopping Cart</h2>
         <hr aria-hidden="true" />
@@ -68,9 +68,11 @@ const Cart = () => {
           <div className={styles.namePrice} aria-label="Shipping total">
             <div aria-hidden="true">Shipping</div>
             {shipping ? (
-              <div>{`$${shipping}`}</div>
+              <div data-testid="shipping-price">{`$${shipping}`}</div>
             ) : (
-              <div style={{ color: "green" }}>Free!</div>
+              <div style={{ color: "green" }} data-testid="shipping-free">
+                Free!
+              </div>
             )}
           </div>
         </div>
@@ -78,7 +80,7 @@ const Cart = () => {
         <div>
           <div className={styles.namePrice} aria-label="Total">
             <div aria-hidden="true">Total</div>
-            <div>{`$${toFixed(priceTotal + shipping, 2)}`}</div>
+            <div data-testid="total-price">{`$${toFixed(priceTotal + shipping, 2)}`}</div>
           </div>
           <button className={styles.checkoutBtn}>Checkout</button>
         </div>

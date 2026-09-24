@@ -29,7 +29,7 @@ describe("Every prop passed displayed", () => {
 
     expect(image.src).toBe(props.image);
   });
-  
+
   it("renders the correct product name and price", () => {
     render(<ShopItem {...props} />);
 
