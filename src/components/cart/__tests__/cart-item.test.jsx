@@ -1,13 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 import CartItem from "../cart-item";
 import { cleanup, render, screen } from "@testing-library/react";
-import { toFixed } from "../../../utils/roundNumber";
 import userEvent from "@testing-library/user-event";
 
 const product = {
   id: 0,
   title: "test",
-  quantity: 2,
+  quantity: 3,
   price: 99.99,
   image: "https://example.com/",
 };
@@ -37,14 +36,20 @@ describe("Props are properly displayed", () => {
     expect(screen.getByText(props.product.title)).toBeInTheDocument();
   });
 
-  it("renders the correct price", () => {
-    const price = toFixed(product.quantity * product.price, 2);
-
+  it("renders the correct price, the result having only two decimals", () => {
     render(<CartItem {...props} />);
 
+    // 99.99 * 3 normally results in 299.96999999999997 which is not desired behavior
     expect(screen.getByTestId("product-price")).toHaveTextContent(
-      new RegExp(price),
+      new RegExp(299.97),
     );
+  });
+
+  it("always renders the price with two decimals", () => {
+    const altProduct = { ...product, price: 1, quantity: 2 };
+    render(<CartItem product={altProduct} />);
+
+    expect(screen.getByTestId("product-price")).toHaveTextContent("$2.00");
   });
 
   it("renders the correct initial quantity", () => {
