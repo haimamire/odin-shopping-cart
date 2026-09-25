@@ -10,7 +10,7 @@ const Shop = () => {
   const { allProducts, loading, error } = useShop();
 
   return (
-    <>
+    <div data-testid="shop">
       {error && (
         <div data-testid="shop-fetching-error">
           <div>There was a problem loading the shop items.</div>
@@ -32,7 +32,7 @@ const Shop = () => {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 

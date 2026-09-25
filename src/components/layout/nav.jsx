@@ -14,6 +14,7 @@ const NavBar = ({ cartLength }) => {
                 className={styles.logoLink}
                 to="/"
                 aria-label="Return back home"
+                data-testid="go-to-home"
               >
                 <div className={styles.logo} aria-hidden="true">
                   <Handshake size="32px" strokeWidth="1.5px" />
@@ -38,7 +39,11 @@ const NavBar = ({ cartLength }) => {
           <div className={styles.rightSide}>
             <ul>
               <li>
-                <Link to="/shop" aria-label="Go to shop">
+                <Link
+                  to="/shop"
+                  aria-label="Go to shop"
+                  data-testid="go-to-shop"
+                >
                   <span aria-hidden="true">Shop</span>
                 </Link>
               </li>
@@ -47,6 +52,7 @@ const NavBar = ({ cartLength }) => {
                   to="/cart"
                   className={styles.cart}
                   aria-label={`Go to shopping cart, ${cartLength} items added`}
+                  data-testid="go-to-cart"
                 >
                   <ShoppingCart size="18px" />
                   <span aria-hidden="true">{cartLength}</span>

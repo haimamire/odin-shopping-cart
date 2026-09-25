@@ -3,6 +3,7 @@ import ShopItem from "../shop-item";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Swal from "sweetalert2";
+import { swalMockConfirm } from "../../../testing/mocks/swal";
 
 const props = {
   id: 0,
@@ -13,7 +14,7 @@ const props = {
 
 const addCartProductMock = vi.fn();
 const navigateMock = vi.fn();
-Swal.fire = vi.fn(() => Promise.resolve({ isConfirmed: true }));
+Swal.fire = swalMockConfirm;
 
 vi.mock("react-router", () => {
   return {

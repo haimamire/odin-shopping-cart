@@ -72,7 +72,7 @@ describe("User interactions", () => {
 
     await user.click(screen.getByTestId("increase-quantity-btn"));
     await user.click(screen.getByTestId("decrease-quantity-btn"));
-    await user.type(screen.getByTestId("quantity-input"), "1");
+    await user.type(screen.getByTestId("cart-item-quantity"), "1");
     expect(updateItem).toHaveBeenCalledTimes(3);
   });
 

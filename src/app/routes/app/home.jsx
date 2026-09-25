@@ -5,7 +5,7 @@ const Home = () => {
   useDocumentTitle("Home | Mercado Negro");
 
   return (
-    <>
+    <div data-testid="home">
       <section className={styles.section}>
         <h1>Welcome!</h1>
         <div className={styles.firstParagraph}>
@@ -38,7 +38,7 @@ const Home = () => {
           />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

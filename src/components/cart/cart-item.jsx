@@ -33,7 +33,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
   };
 
   return (
-    <li className={styles.itemContainer}>
+    <li className={styles.itemContainer} data-testid="cart-item">
       <div className={styles.imgContainer}>
         <img
           src={product.image}
@@ -72,7 +72,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
               value={product.quantity}
               onChange={handleInputQuantity}
               aria-label="Current number of the same item"
-              data-testid="quantity-input"
+              data-testid="cart-item-quantity"
             />
             <button
               onClick={increaseQuantity}

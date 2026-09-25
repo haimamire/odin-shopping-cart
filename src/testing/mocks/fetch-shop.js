@@ -1,10 +1,10 @@
 import { vi } from "vitest";
 
 export const shopItemsData = [
-  { id: 0, title: "product0", price: "1", image: "testImage0" },
+  { id: 0, title: "product0", price: "0.3", image: "testImage0" },
   { id: 1, title: "product1", price: "2", image: "testImage1" },
   { id: 2, title: "product2", price: "3", image: "testImage2" },
-  { id: 3, title: "product2", price: "4", image: "testImage3" },
+  { id: 3, title: "product3", price: "4", image: "testImage3" },
 ];
 
 export const fetchShopMock = vi.fn(() =>

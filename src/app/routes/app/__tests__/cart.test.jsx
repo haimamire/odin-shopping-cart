@@ -78,6 +78,15 @@ describe("Order summary", () => {
     expect(screen.getByTestId("total-price")).toHaveTextContent("$357.91");
   });
 
+  it("adds the shipping fee to the total price", () => {
+    useOutletContext.mockImplementationOnce(() => ({
+      cartProducts: [{ ...cartProductsMock[0], quantity: 1, price: 1 }],
+    }));
+
+    render(<Cart />);
+    expect(screen.getByTestId("total-price")).toHaveTextContent("$9.00");
+  });
+
   it("renders the checkout button", () => {
     render(<Cart />);
     expect(
