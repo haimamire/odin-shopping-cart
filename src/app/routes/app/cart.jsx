@@ -14,13 +14,11 @@ const Cart = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const priceTotal = useMemo(() => {
-    let newPrice = cartProducts.reduce(
-      (acc, curr) => acc + curr.price * curr.quantity,
-      0,
-    );
-    return toFixed(newPrice, 2);
-  }, [cartProducts]);
+  const priceTotal = useMemo(
+    () =>
+      cartProducts.reduce((acc, curr) => acc + curr.price * curr.quantity, 0),
+    [cartProducts],
+  );
 
   const shipping = priceTotal < 20 ? 8 : 0;
 
@@ -63,7 +61,7 @@ const Cart = () => {
         <div>
           <div className={styles.namePrice} aria-label="Items total">
             <div aria-hidden="true">Items</div>
-            <div>{`$${priceTotal}`}</div>
+            <div>{`$${toFixed(priceTotal, 2)}`}</div>
           </div>
           <div className={styles.namePrice} aria-label="Shipping total">
             <div aria-hidden="true">Shipping</div>
@@ -80,7 +78,9 @@ const Cart = () => {
         <div>
           <div className={styles.namePrice} aria-label="Total">
             <div aria-hidden="true">Total</div>
-            <div data-testid="total-price">{`$${toFixed(priceTotal + shipping, 2)}`}</div>
+            <div data-testid="total-price">
+              ${toFixed(priceTotal + shipping, 2)}
+            </div>
           </div>
           <button className={styles.checkoutBtn}>Checkout</button>
         </div>
