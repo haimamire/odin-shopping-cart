@@ -51,7 +51,7 @@ describe("Shopping cart", () => {
     cleanup();
 
     useOutletContext.mockImplementationOnce(() => ({
-      cartProducts: [{}],
+      cartProducts: [{ id: 0 }],
     }));
     render(<Cart />);
 
@@ -101,7 +101,7 @@ describe("Order summary", () => {
     cleanup();
 
     useOutletContext.mockImplementationOnce(() => ({
-      cartProducts: [{ quantity: 1, price: 19 }],
+      cartProducts: [{ id: 0, quantity: 1, price: 19 }],
     }));
     render(<Cart />);
     expect(screen.getByTestId("shipping-price")).toBeInTheDocument();
