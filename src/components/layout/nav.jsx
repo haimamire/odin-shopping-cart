@@ -28,6 +28,7 @@ const NavBar = ({ cartLength }) => {
             <form action="" className={styles.searchBar} role="search">
               <input
                 type="text"
+                name="search"
                 placeholder="This thing doesn't work..."
                 aria-label="Search input"
               />

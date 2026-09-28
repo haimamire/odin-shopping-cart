@@ -35,6 +35,7 @@ const Home = () => {
             src="https://picsum.photos/500"
             width="500px"
             height="500px"
+            fetchPriority="high"
           />
         </div>
       </section>

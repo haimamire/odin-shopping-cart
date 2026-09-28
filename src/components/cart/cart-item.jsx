@@ -69,6 +69,7 @@ const CartItem = ({ product, removeItem, updateItem }) => {
             </button>
             <input
               type="number"
+              name="cart-item-quantity"
               value={product.quantity}
               onChange={handleInputQuantity}
               aria-label="Current number of the same item"
